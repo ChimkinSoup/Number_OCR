@@ -44,10 +44,9 @@ def read_labels(filename, max_labels=None):
             if max_labels:
                 number_labels = min(number_labels, max_labels)
 
-            for label_index in range(number_labels):
-                label = byte_to_int(file.read(1))
-                all_labels.append(label)
-        return np.array(all_labels)
+            # Read all labels at once for better performance
+            all_labels = np.frombuffer(file.read(number_labels), dtype=np.uint8)
+        return all_labels
     except Exception as e:
         raise ValueError(f"Error reading label file {filename}: {e}") 
 

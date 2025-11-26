@@ -26,7 +26,7 @@ class NeuralNetwork:
         self.epsilon = epsilon
 
         self.time = 0
-        self.weightDecay= weightDecay;
+        self.weightDecay = weightDecay
 
         # Early Stopping
         self.epochCount = 1
@@ -164,7 +164,8 @@ class NeuralNetwork:
         print("Done")
 
     def saveData(self):
-        np.savez("NN_Accuracy:" + str(self.bestAccuracy) + ".npz", weight1 = self.weight1, bias1 = self.bias1, weight2 = self.weight2, bias2 = self.bias2)       # NumPy binary file
+        filename = "NN_Accuracy_" + str(self.bestAccuracy) + ".npz"
+        np.savez(filename, weight1 = self.weight1, bias1 = self.bias1, weight2 = self.weight2, bias2 = self.bias2)       # NumPy binary file
 
 def oneHotConverter(arr):
     oneHot = np.zeros((arr.size, 10))
