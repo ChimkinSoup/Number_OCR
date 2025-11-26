@@ -133,7 +133,7 @@ class NeuralNetwork:
         else:
             return True
     def loadBestModel(self):
-        filename = "BestModel.npz"
+        filename = "DefaultModel.npz"
         # Check if file exists in current directory, if not try parent of current script
         if not os.path.exists(filename):
             script_dir = os.path.dirname(os.path.abspath(__file__))
